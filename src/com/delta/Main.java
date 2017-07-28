@@ -1,9 +1,9 @@
-package com;
+package com.delta;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class delta {
+public class Main {
     public static void main(String[] args) {
         List<String> a = new ArrayList<>();
         a.add("2");
