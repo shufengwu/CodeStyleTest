@@ -1,10 +1,12 @@
 package com.delta.lineSeparator;
 
+import java.io.*;
+
 public class LineSeparatorTest {
     public static void main(String[] args) {
 
 
-        /*File file = new File("javaIoTestFile.txt");
+        File file = new File("javaIoTestFile.txt");
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -52,11 +54,16 @@ public class LineSeparatorTest {
         System.out.println(lineSeparator.equals("\r\n"));
         System.out.println();
 
+        for (int i = 0; i < lineSeparator.length(); i++) {
+            System.out.print(Integer.valueOf(lineSeparator.charAt(i)) + " ");
+        }
+        System.out.println();
+
         String lineSeparator2 = System.lineSeparator();
         System.out.println(lineSeparator2.length());
         System.out.println("hehehehe2" + lineSeparator2 + "testtest2");
         System.out.println(lineSeparator2.equals("\r\n"));
-        System.out.println();*/
+        System.out.println();
 
 
     }
