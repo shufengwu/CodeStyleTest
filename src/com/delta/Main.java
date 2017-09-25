@@ -1,12 +1,11 @@
 package com.delta;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        /*List<String> a1 = new ArrayList<>();
+        List<String> a1 = new ArrayList<>();
         a1.add("1");
         a1.add("2");
         a1.add("3");
@@ -14,21 +13,20 @@ public class Main {
         a1.add("5");
         int len=a1.size();
         for (int i=0;i<len;i++) {
-            System.out.println(a1.get(i));
             if ("3".equals(a1.get(i))) {
-                a1.remove(a1.get(i));
+                a1.remove(i);
                 //增加
-                len--;
-                i--;
+                //len--;
+                //i--;
             }
         }
 
-        System.out.println("size: " + a1.size());
+        /*System.out.println("size: " + a1.size());
         for (int i = 0; i < a1.size(); i++) {
             System.out.println(a1.get(i));
         }*/
 
-        List<String> a2 = new ArrayList<>();
+        /*List<String> a2 = new ArrayList<>();
         a2.add("1");
         a2.add("2");
         a2.add("3");
@@ -65,7 +63,7 @@ public class Main {
         System.out.println("size: " + a3.size());
         for (int i = 0; i < a3.size(); i++) {
             System.out.println(a3.get(i));
-        }
+        }*/
 
 
 
