@@ -19,7 +19,14 @@ public class CompatatorTest {
         Collections.sort(list, new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                return o1 >= o2 ? 1 : -1;
+                //return o1 > o2 ? 1 : -1;
+                if (o1 > o2) {
+                    return 1;
+                } else if (o1 < o2) {
+                    return -1;
+                } else {
+                    return 0;
+                }
             }
         });
 
