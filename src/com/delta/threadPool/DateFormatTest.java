@@ -14,7 +14,7 @@ public class DateFormatTest {
                 @Override
                 public void run() {
                     try {
-                        while (true) {
+                        for (int jj = 0; jj < 100; jj++) {
                             String str1 = date[temp];
                             String str2 = sdf.format(sdf.parse(str1));
                             System.out.println(Thread.currentThread().getName() + ", " + str1 + "," + str2);
