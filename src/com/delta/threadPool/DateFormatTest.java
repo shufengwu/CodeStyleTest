@@ -1,12 +1,11 @@
 package com.delta.threadPool;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 public class DateFormatTest {
-    /*private static SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy", Locale.US);
-    private static String date[] = { "01-Jan-1999", "01-Jan-2000", "01-Jan-2001" };
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+    private static String date[] = {"01-01-1999", "01-01-2000", "01-01-2001"};
 
     public static void main(String[] args) {
         for (int i = 0; i < date.length; i++) {
@@ -30,9 +29,9 @@ public class DateFormatTest {
                 }
             }).start();
         }
-    }*/
+    }
 
-    public static class TestSimpleDateFormatThreadSafe extends Thread {
+    /*public static class TestSimpleDateFormatThreadSafe extends Thread {
         @Override
         public void run() {
             while(true) {
@@ -56,5 +55,5 @@ public class DateFormatTest {
             new TestSimpleDateFormatThreadSafe().start();
         }
 
-    }
+    }*/
 }
