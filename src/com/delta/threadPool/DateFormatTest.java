@@ -1,12 +1,14 @@
 package com.delta.threadPool;
 
-import java.text.SimpleDateFormat;
-import java.util.Locale;
+import org.apache.commons.lang3.time.DateFormatUtils;
+import org.apache.commons.lang3.time.DateUtils;
 
 public class DateFormatTest {
-    private static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+    /**
+     * 采用SimpleDateFormat
+     */
+    /*private static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
     private static String date[] = {"01-01-1999", "01-01-2000", "01-01-2001"};
-
     public static void main(String[] args) {
         for (int i = 0; i < date.length; i++) {
             final int temp = i;
@@ -14,7 +16,7 @@ public class DateFormatTest {
                 @Override
                 public void run() {
                     try {
-                        while (true) {
+                        for(int jj=0;jj<100;jj++){
                             String str1 = date[temp];
                             String str2 = sdf.format(sdf.parse(str1));
                             System.out.println(Thread.currentThread().getName() + ", " + str1 + "," + str2);
@@ -29,31 +31,39 @@ public class DateFormatTest {
                 }
             }).start();
         }
-    }
+    }*/
 
-    /*public static class TestSimpleDateFormatThreadSafe extends Thread {
-        @Override
-        public void run() {
-            while(true) {
-                try {
-                    this.join(2000);
-                } catch (InterruptedException e1) {
-                    e1.printStackTrace();
-                }
-                try {
-                    System.out.println(this.getName()+":"+DateUtil.parse("2013-05-24 06:02:20"));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
+    /**
+     * 采用DateUtils
+     */
 
+    private static String pattern = "dd-MM-yyyy";
+    private static String date[] = {"01-01-1999", "01-01-2000", "01-01-2001"};
 
     public static void main(String[] args) {
-        for(int i = 0; i < 3; i++){
-            new TestSimpleDateFormatThreadSafe().start();
+        for (int i = 0; i < date.length; i++) {
+            final int temp = i;
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        for (int jj = 0; jj < 100; jj++) {
+                            String str1 = date[temp];
+                            String str2 = DateFormatUtils.format(DateUtils.parseDate(str1, pattern), pattern);
+                            System.out.println(Thread.currentThread().getName() + ", " + str1 + "," + str2);
+                            if (!str1.equals(str2)) {
+                                throw new RuntimeException(Thread.currentThread().getName()
+                                        + ", Expected " + str1 + " but got " + str2);
+                            }
+                        }
+                    } catch (Exception e) {
+                        throw new RuntimeException("parse failed", e);
+                    }
+                }
+            }).start();
         }
+    }
 
-    }*/
+
+
 }
