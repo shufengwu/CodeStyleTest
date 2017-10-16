@@ -18,7 +18,7 @@ public class SubListTest {
         List<String> subList = arrayList.subList(2, 4);
         System.out.println(subList);
 
-        /*arrayList.subList(2, 4).remove(0);
-        System.out.println(arrayList);*/
+        arrayList.subList(2, 4).remove(0);
+        System.out.println(arrayList);
     }
 }
