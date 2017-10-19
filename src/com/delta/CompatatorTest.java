@@ -1,37 +1,49 @@
 package com.delta;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class CompatatorTest {
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(4);
-        list.add(3);
-        list.add(5);
-        list.add(4);
-        list.add(1);
-        list.add(10);
-        Collections.sort(list, new Comparator<Integer>() {
+        List<Student> list = Arrays.asList(
+                new Student(10), new Student(7), new Student(4), new Student(4),
+                new Student(2), new Student(2), new Student(7), new Student(3),
+                new Student(10), new Student(7), new Student(4), new Student(4),
+                new Student(2), new Student(2), new Student(7), new Student(3),
+                new Student(10), new Student(7), new Student(4), new Student(4),
+                new Student(2), new Student(2), new Student(7), new Student(3),
+                new Student(10), new Student(7), new Student(4), new Student(4),
+                new Student(2), new Student(2), new Student(7), new Student(3),
+                new Student(4), new Student(4), new Student(2), new Student(2),
+                new Student(7), new Student(3));
+        Collections.sort(list, new Comparator<Student>() {
             @Override
-            public int compare(Integer o1, Integer o2) {
-                //return o1 > o2 ? 1 : -1;
-                if (o1 > o2) {
+            public int compare(Student o1, Student o2) {
+                return o1.age > o2.age ? 1 : -1;
+                /*if (o1.age > o2.age) {
                     return 1;
-                } else if (o1 < o2) {
+                } else if (o1.age < o2.age) {
                     return -1;
                 } else {
                     return 0;
-                }
+                }*/
             }
         });
 
-        for (Integer integer : list) {
-            System.out.println(integer);
+        for (Student integer : list) {
+            System.out.println(integer.age);
         }
+    }
+
+
+}
+
+class Student {
+    int age;
+
+    public Student(int age) {
+        this.age = age;
     }
 }

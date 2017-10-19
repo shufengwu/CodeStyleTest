@@ -1,6 +1,7 @@
 package com.delta.setTest.setTest;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SetTest {
@@ -43,11 +44,20 @@ public class SetTest {
         for (String s : listArray) {
             System.out.print(s + " ");
         }
-        System.out.println();*/
+        System.out.println();
+
+        //类型转换
+        listArray = new String[list.toArray().length];
+        for(int i=0;i<listArray.length;i++){
+            listArray[i] = (String)list.toArray()[i];
+        }
+        for (String s : listArray) {
+            System.out.print(s + " ");
+        }*/
 
 
         //asList
-        /*String[] arr = new String[]{"ab", "cd", "ef", "gh"};
+        String[] arr = new String[]{"ab", "cd", "ef", "gh"};
         List<String> list2 = Arrays.asList(arr);
         System.out.println(list2);
 
@@ -56,7 +66,7 @@ public class SetTest {
 
         arr[0] = "ba";
         System.out.println(arr[0]);
-        System.out.println(list2);*/
+        System.out.println(list2);
 
 
     }
