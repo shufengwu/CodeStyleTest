@@ -32,9 +32,9 @@ public class Main {
 
         for (String a : a2) {
             System.out.println(a);
-            if ("2".equals(a)) {
-                a2.remove(a);
-            }
+            //if ("2".equals(a)) {
+            a2.remove(0);
+            /*}*/
         }
 
         System.out.println("size: " + a2.size());

@@ -1,26 +1,57 @@
 package com.delta.setTest.setTest;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SetTest {
     public static void main(String[] args) {
         //定义一个List
         List<String> list = new ArrayList<>();
-        list.add("abc");
-        list.add("def");
-        list.add("def");
-        list.add("ghi");
-        list.add("jkl");
-        list.add("jkl");
-        //System.out.println(list);
+        list.add("a");
+        list.add("d");
+        list.add("d");
+        list.add("g");
+        list.add("j");
+        list.add("j");
+        list.add("b");
+        list.add("b");
+        list.add("c");
+        list.add("c");
+        System.out.println(list);
+
+        /*List<String> subList = list.subList(2,4);
+        list.set(2,"z");
+        System.out.println(subList.size());
+        System.out.println(list.size());*/
+
 
         //用set给list去重
-        /*Set<String> set = new HashSet<>(list);
-        list.clear();
+        Set<String> set = new HashSet<>();
+        for (int i = 0; i < 1000; i++) {
+            set.add(i + "");
+        }
+        System.out.println(set);
+        System.out.println(set);
+        System.out.println(set);
+        System.out.println(set);
+        System.out.println(set);
+        System.out.println(set);
+        System.out.println(set);
+
+        /*list.clear();
         list.addAll(set);
         System.out.println(list);*/
+
+        /*Set set2 = new  HashSet();
+        List newList = new  ArrayList();
+        for (String cd:list) {
+            if(set2.add(cd)){
+                newList.add(cd);
+            }
+        }
+        System.out.println( "去重后的集合： " + newList);*/
 
         //用toArray方法将list转为数组
         /*String[] listArray = new String[list.size()];
@@ -53,7 +84,7 @@ public class SetTest {
         }
         for (String s : listArray) {
             System.out.print(s + " ");
-        }*/
+        }
 
 
         //asList
@@ -66,7 +97,7 @@ public class SetTest {
 
         arr[0] = "ba";
         System.out.println(arr[0]);
-        System.out.println(list2);
+        System.out.println(list2);*/
 
 
     }
