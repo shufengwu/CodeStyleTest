@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SubListTest {
+    int a = 0;
     public static void main(String[] args) {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("a");
@@ -18,7 +19,9 @@ public class SubListTest {
         List<String> subList = arrayList.subList(2, 4);
         System.out.println(subList);
 
-        arrayList.subList(2, 4).remove(0);
+        subList.remove(0);
+        System.out.println(subList.toString());
+
         System.out.println(arrayList);
     }
 }

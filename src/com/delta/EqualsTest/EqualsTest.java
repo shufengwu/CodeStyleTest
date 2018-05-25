@@ -16,6 +16,8 @@ public class EqualsTest {
     private static Integer integer3 = 130;
     private static Integer integer4 = 130;
 
+    static A a = new A();
+
     public static void main(String[] args) {
 
         System.out.println(null == str1);
@@ -39,6 +41,23 @@ public class EqualsTest {
 
         //一、（四）、8
 
+        test(a);
+        System.out.println(a.aaa);
+
 
     }
+
+    public static void test(A tmp) {
+        System.out.println(tmp.aaa);
+        tmp.aaa = 2;
+        System.out.println(tmp.aaa);
+
+
+    }
+
+
+}
+
+class A {
+    int aaa = 1;
 }
