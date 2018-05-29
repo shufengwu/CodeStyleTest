@@ -1,21 +1,28 @@
 package com.delta.exception;
 
-import java.util.Optional;
-import java.util.function.Function;
-
 public class OptionalTest {
     public static void main(String[] args) {
         /**
          * of
          */
-        /*Optional<String> s1 = Optional.of("delta");
+        //Optional<String> s1 = Optional.of("delta");
         //传入参数为null会报NPE
-        Optional<String> s2 = Optional.of(null);*/
+        //Optional<String> s2 = Optional.of(null);
+        //System.out.println(s1.get());
+
 
         /**
          * ofNullable
          */
-        /*Optional<String> s3 = Optional.ofNullable(null);*/
+
+        /*try{
+            Optional<String> s3 = Optional.ofNullable(null);
+            System.out.println(s3.get());
+        }catch (NoSuchElementException e){
+            //e.printStackTrace();
+            System.out.println(e.getMessage());
+        }*/
+
 
         /**
          * isPresent
@@ -40,7 +47,8 @@ public class OptionalTest {
         /**
          * ifPresent
          */
-        /*Optional<String> s6 = Optional.ofNullable("wsf");
+        //Optional<String> s6 = Optional.ofNullable("wsf");
+        /*Optional<String> s6 = Optional.ofNullable(null);
         s6.ifPresent(new Consumer<String>() {
             @Override
             public void accept(String s) {
@@ -51,13 +59,15 @@ public class OptionalTest {
         /**
          * orElse
          */
-        /*Optional<String> s7 = Optional.ofNullable(null);
-        System.out.println(s7.orElse("default value"));*/
-
+        //Optional<String> s7 = Optional.ofNullable(null);
+        /*Optional<String> s7 = Optional.ofNullable("wsf");
+        System.out.println(s7.orElse("default value"));
+*/
         /**
          * orElseGet
          */
-        /*Optional<String> s8 = Optional.ofNullable("wsf");
+        //Optional<String> s8 = Optional.ofNullable("wsf");
+        /*Optional<String> s8 = Optional.ofNullable(null);
         System.out.println(s8.orElseGet(new Supplier<String>() {
             @Override
             public String get() {
@@ -70,9 +80,9 @@ public class OptionalTest {
          */
         /*Optional<String> s9 = Optional.ofNullable(null);
         try{
-            s9.orElseThrow(new Supplier<Exception>() {
+            s9.orElseThrow(new Supplier<ValueAbsentException>() {
                 @Override
-                public Exception get() {
+                public ValueAbsentException get() {
                     return new ValueAbsentException("无值");
                 }
             });
@@ -85,24 +95,24 @@ public class OptionalTest {
          * map
          */
         /*Optional<String> s10 = Optional.ofNullable("wsf");
-        Optional<String>upperName = s10.map(new Function<String, String>() {
+        String upperName = s10.map(new Function<String, String>() {
             @Override
             public String apply(String s) {
                 return s.toUpperCase();
             }
-        });
-        System.out.println(upperName.orElse("no value"));*/
+        }).orElse("no value");
+        System.out.println(upperName);
 
-        /**
+        *//**
          * flatMap
-         */
-        /*upperName = s10.flatMap(new Function<String, Optional<String>>() {
+         *//*
+        upperName = s10.flatMap(new Function<String, Optional<String>>() {
             @Override
             public Optional<String> apply(String s) {
                 return Optional.of(s.toUpperCase());
             }
-        });
-        System.out.println(upperName.orElse("no value"));*/
+        }).orElse("no value");
+        System.out.println(upperName);*/
 
 
         /**
@@ -111,19 +121,29 @@ public class OptionalTest {
         /*Optional<String> s11 = Optional.ofNullable("wsfwsfwsf");
         //filter方法检查给定的Option值是否满足某些条件。
         //如果满足则返回同一个Option实例，否则返回空Optional。
-        Optional<String> longName = s11.filter((value) -> value.length() > 6);
+        Optional<String> longName = s11.filter(new Predicate<String>() {
+            @Override
+            public boolean test(String s) {
+                return s.length()>=6;
+            }
+        });
         System.out.println(longName.orElse("The name is less than 6 characters"));//输出Sanaulla
 
         //另一个例子是Optional值不满足filter指定的条件。
         Optional<String> anotherName = Optional.of("Sana");
-        Optional<String> shortName = anotherName.filter((value) -> value.length() > 6);
+        Optional<String> shortName = anotherName.filter(new Predicate<String>() {
+            @Override
+            public boolean test(String s) {
+                return s.length()>=6;
+            }
+        });
         //输出：name长度不足6字符
         System.out.println(shortName.orElse("The name is less than 6 characters"));*/
 
         /**
          * map级联
          */
-        Optional<String> s12 = Optional.ofNullable("wsfwsfwsf");
+        /*Optional<String> s12 = Optional.ofNullable("wsfwsfwsf");
         String res = s12.map(new Function<String, String>() {
             @Override
             public String apply(String s) {
@@ -143,7 +163,7 @@ public class OptionalTest {
                 return s.toLowerCase();
             }
         }).orElse("no value");
-        System.out.println(res);
+        System.out.println(res);*/
 
     }
 }
