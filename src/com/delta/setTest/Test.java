@@ -1,47 +1,31 @@
 package com.delta.setTest;
 
-interface A {
-    void change();
-}
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Test {
-
-
     public static void main(String[] args) {
-        new C().testChange();
-    }
+        List<String> list = new ArrayList<>();
+        list.add("abc");
+        list.add("abc");
+        list.add("bcd");
+        list.add("cde");
+        list.add("cde");
+        list.add("def");
 
-
-}
-
-class C implements A {
-    int test = 0;
-
-    void testChange() {
-
-        B b = new B(this);
-        System.out.println(test + "");
-        b.change();
-        System.out.println(test + "");
-    }
-
-    @Override
-    public void change() {
-        test++;
-    }
-
-    class B implements A {
-        A a;
-
-        public B(A a) {
-            this.a = a;
-            System.out.println(this.a == a);
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " ");
         }
+        System.out.println();
 
-
-        @Override
-        public void change() {
-            a.change();
+        Set<String> set = new HashSet<>(list);
+        list.clear();
+        list.addAll(set);
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " ");
         }
+        System.out.println();
     }
 }
