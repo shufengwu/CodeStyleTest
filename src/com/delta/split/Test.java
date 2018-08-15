@@ -11,6 +11,9 @@ public class Test {
         String[] arr2 = str2.split(",");
         printArray(arr2);
 
+        String str3 = "sjfklskld{fskdlsl{fsdlfklskld{fsklfdlks";
+        String[] arr3 = str3.split("\\{");
+        printArray(arr3);
 
 
     }

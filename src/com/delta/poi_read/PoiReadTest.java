@@ -94,7 +94,7 @@ public class PoiReadTest {
                 Row row = sheet.getRow(i);
                 int firstCellNumContent = row.getFirstCellNum();
                 //int lastCellNumContent = row.getPhysicalNumberOfCells();
-                Cell cellContent = row.getCell(firstCellNum);
+                Cell cellContent = row.getCell(firstCellNumContent);
                 lineList.add(cellContent.getStringCellValue());
             }
         }
